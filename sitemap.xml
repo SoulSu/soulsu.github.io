@@ -4,7 +4,12 @@
   
   <url>
     <loc>https://soulsu.github.io/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2008-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</loc>
+    <lastmod>2018-04-04T15:42:45+08:00</lastmod>
   </url>
   
   <url>
@@ -13,38 +18,8 @@
   </url>
   
   <url>
-    <loc>https://soulsu.github.io/post/nginx-access-control/</loc>
+    <loc>https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</loc>
     <lastmod>2018-04-04T11:11:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/post/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/post/hello-world/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/post/goisforlovers/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/post/hugoisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/post/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/post/hugo-nuo-post-preview/</loc>
-    <lastmod>2013-07-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -53,80 +28,32 @@
   </url>
   
   <url>
-    <loc>https://soulsu.github.io/tags/development/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/go/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/golang/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/hugo/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://soulsu.github.io/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2008-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://soulsu.github.io/tags/linux/</loc>
-    <lastmod>2018-04-04T11:19:20+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/markdown/</loc>
-    <lastmod>2013-07-17T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-04T15:42:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://soulsu.github.io/tags/nginx/</loc>
-    <lastmod>2018-04-04T11:19:20+08:00</lastmod>
+    <lastmod>2018-04-04T15:42:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://soulsu.github.io/post/</loc>
-    <lastmod>2018-04-04T11:19:20+08:00</lastmod>
+    <lastmod>2018-04-04T15:42:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://soulsu.github.io/tags/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/templates/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://soulsu.github.io/tags/themes/</loc>
-    <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-04T15:42:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   

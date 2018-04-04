@@ -5,10 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>
-  Posts
-   | 宇宙无敌大魔王
-</title>
+  <title>Nginx访问控制</title>
 
   
   
@@ -18,23 +15,29 @@
 
 
   
-  <meta name="author" content="Soulsu" />
-  <meta name="description" content="" />
+  <meta name="author" content="soulsu" />
+  <meta name="description" content="Nginx访问控制，跨域请求配置。
+
+" />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@gohugoio" />
-    <meta name="twitter:title" content="Posts" />
-    <meta name="twitter:description" content="" />
+    <meta name="twitter:title" content="Nginx访问控制" />
+    <meta name="twitter:description" content="Nginx访问控制，跨域请求配置。
+
+" />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Posts" />
-  <meta property="og:description" content="" />
-  <meta property="og:url" content="https://soulsu.github.io/post/" />
+  <meta property="og:title" content="Nginx访问控制" />
+  <meta property="og:description" content="Nginx访问控制，跨域请求配置。
+
+" />
+  <meta property="og:url" content="https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
@@ -43,7 +46,7 @@
 <meta name="generator" content="Hugo 0.37.1" />
 
 
-<link rel="canonical" href="https://soulsu.github.io/post/" />
+<link rel="canonical" href="https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" />
 <link rel="alternative" href="https://soulsu.github.io/index.xml" title="Hugo Blog" type="application/atom+xml" />
 
 
@@ -106,6 +109,10 @@
     
     <div class="suspension">
       <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+        <a title="Go to comments" class="to-comment" href="#SOHUCS"><span class="icon icon-comment"></span></a>
+        
       
     </div>
     
@@ -220,59 +227,92 @@
   </nav>
 </header>
 
-  <section class="main post-list">
-    <header class="list-header offscreen">
-      <h2 class="list-label">Posts List</h2>
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Nginx访问控制</h1>
+      <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
     </header>
+    <article class="post-content"><p>Nginx访问控制，跨域请求配置。</p>
+
+<p></p>
+
+<h3 id="限制-ip-访问">限制 IP 访问</h3>
+
+<p>需求</p>
+
+<blockquote>
+<p>有一个后台，只允许由公司内部发送访问，不支持其他地方访问，这个时候就需要使用IP 地址进行访问控制啦～</p>
+</blockquote>
+
+<pre><code>location /admin/ {
+    deny 10.0.0.1;
+    allow 10.0.0.0/20;
+    allow 2001:0db8::/32;
+    deny all;
+}
+</code></pre>
+
+<p>如上所示， <code>deny</code> 指令限制不能访问的IP， <code>allow</code> 指令允许能够访问的IP，从上到下执行匹配，直到最后一个配置为止。</p>
+
+<h3 id="配置跨域访问">配置跨域访问</h3>
+
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">CORS 跨域说明</a>，资源跨域共享的方法很多，这里就说说如何使用 Nginx 来配置资源支持跨域访问。</p>
+
+<p>配置方法：</p>
+
+<pre><code>map $request_method $cors_method {
+    OPTIONS 11;
+    GET 1;
+    POST 1;
+    default 0;
+}
+server {
+    location / {
+        if ($cors_method ~ '1') {
+            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+            add_header 'Access-Control-Allow-Origin' '*.example.com';
+            add_header 'Access-Control-Allow-Headers' 'DNT,
+            Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type';
+        }
+        if ($cors_method = '11') {
+            add_header 'Access-Control-Max-Age' 1728000;
+            add_header 'Content-Type' 'text/plain; charset=UTF-8';
+            add_header 'Content-Length' 0;
+            return 204;
+        }
+    }
+}
+</code></pre>
+
+<p>当浏览器发现请求是一个跨域请求时，会先发送一个 <strong>OPTIONS</strong> HTTP 方法，用来检测服务端是否支持跨域。如果支持，就会发送正常的 HTTP 请求方法。</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://soulsu.github.io/tags/linux"><span class="tag">Linux</span></a></li>
+        
+          <li><a href="https://soulsu.github.io/tags/nginx"><span class="tag">Nginx</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © 原创文章，望大家多多指导交流
+      </p>
+    </footer>
     
-    
       
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/" class="post-link">Nginx服务健康检查</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/">Read More →</a>
-  </footer>
-</article>
-
+      <div id="cyReward" role="cylabs" data-use="reward"></div>
+      <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
+      <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
+      <div id="SOHUCS" sid="/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" ></div>
+      <script>
+      (function(){
+      var appid = 'cyty0nhnf';
+      var conf = 'prod_9175e55dec0b418faa3a36a323fb6345';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
       
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/" class="post-link">Nginx负载均衡实践</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 2 min read</p>
-  </header>
-  
-  <p class="post-summary">Nginx负载均衡实践,描述了Nginx在不同的负载均衡下的配置和实现方法
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/">Read More →</a>
-  </footer>
-</article>
-
-      
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" class="post-link">Nginx访问控制</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">Nginx访问控制，跨域请求配置。
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">Read More →</a>
-  </footer>
-</article>
-
-      
-    
     
   </section>
   <footer class="site-footer">
