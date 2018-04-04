@@ -1,5 +1,5 @@
 baseURL = "https://soulsu.github.io"
-languageCode = "en"
+languageCode = "zh-cn"
 title = "Hugo Blog"
 theme = "nuo"
 enableRobotsTXT = true
@@ -10,45 +10,45 @@ canonifyurls = true
 disqusShortname = "disqus_shortname"
 
 # Google Analytics UA number
-googleAnalytics = "UA-XXXXXXXX-X"
+googleAnalytics = "UA-75759480-2"
 
 # Copyright of your post
-copyright = "© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce."
+copyright = "© 原创文章，望大家多多交流"
 
 # Initial site menu, you can extend menu with content.
 [[menu.main]]
-  name = "Home"
+  name = "主页"
   weight = 10
   identifier = "home"
   url = "/"
 
 [[menu.main]]
-  name = "Works"
+  name = "工作"
   weight = 20
   identifier = "works"
-  url = "https://github.com/laozhu"
+  url = "https://github.com/soulsu"
 
 [[menu.main]]
-  name = "Tags"
+  name = "标签"
   weight = 30
   identifier = "tags"
   url = "/tags/"
 
 # Add your own params here
 [params]
-  author = "Ritchie Zhu"
-  avatar = "/img/avatar.jpg"
-  seotitle = "Hugo Blog (SEO Version)"
+  author = "Soulsu"
+  avatar = "/img/avatar.jpeg"
+  seotitle = "宇宙无敌大魔王"
   subtitle = "~ Keep It Simple & Stupid ~"
   description = "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again."
   paginate = 10
 
   # Choose your social networks
-  email = "name@domain.com"
-  github = "github_username"
-  twitter = "twitter_username"
-  linkedin = "linkedin_username"
-  weibo = "weibo_username"
+  email = "soul.sxd@gmail.com"
+  github = "soulsu"
+  #twitter = "twitter_username"
+  #linkedin = "linkedin_username"
+  #weibo = "weibo_username"
   wechat= "/img/qrcode.jpg" # Replace with your wechat qrcode image
   # facebook = "facebook_username"
   # google = "googlplus_id_number"
@@ -67,9 +67,9 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   # bilibili = "bilibili_id_number"
 
   # Changyan Comments (China Only)
-  changyan = false
-  changyanId = "cyt3toRiB"
-  changyanConf = "prod_0908b1cb9a581501753cce1ed074dbe3"
+  changyan = true
+  changyanId = "cyty0nhnf"
+  changyanConf = "prod_9175e55dec0b418faa3a36a323fb6345"
 
   # Google Webmaster
   # https://www.google.com/webmasters/
