@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多指导交流</copyright>
-    <lastBuildDate>Wed, 04 Apr 2018 15:42:45 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Apr 2018 16:11:56 +0800</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 终端快捷键</title>
+      <link>https://soulsu.github.io/post/linux/%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Wed, 04 Apr 2018 16:11:56 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/linux/%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>&lt;p&gt;Linux 终端有很多快捷键，良好的操作能提高自己的开发工作效率，来一起看看吧～&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Nginx服务健康检查</title>
