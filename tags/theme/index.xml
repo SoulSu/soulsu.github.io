@@ -5,7 +5,7 @@
     <link>https://soulsu.github.io/tags/theme/</link>
     <description>Recent content in Theme on Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
     <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
     
@@ -23,12 +23,12 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
-      <title>Hello world</title>
+      <title>Hello world1</title>
       <link>https://soulsu.github.io/post/hello-world/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://soulsu.github.io/post/hello-world/</guid>
-      <description>你是猪，你是猪</description>
+      <description>你是猪，你是猪八戒 123</description>
     </item>
     
     <item>

@@ -5,7 +5,7 @@
     <link>https://soulsu.github.io/tags/</link>
     <description>Recent content in Tags on Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
     <lastBuildDate>Mon, 28 Jul 2014 00:00:00 +0000</lastBuildDate>
     
@@ -49,11 +49,29 @@
     </item>
     
     <item>
+      <title>Linux</title>
+      <link>https://soulsu.github.io/tags/linux/</link>
+      <pubDate>Wed, 04 Apr 2018 11:19:20 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Markdown</title>
       <link>https://soulsu.github.io/tags/markdown/</link>
       <pubDate>Wed, 17 Jul 2013 00:00:00 +0000</pubDate>
       
       <guid>https://soulsu.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://soulsu.github.io/tags/nginx/</link>
+      <pubDate>Wed, 04 Apr 2018 11:19:20 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/tags/nginx/</guid>
       <description></description>
     </item>
     

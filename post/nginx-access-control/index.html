@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>Hello world1</title>
+  <title>Nginx访问控制</title>
 
   
   
@@ -15,23 +15,29 @@
 
 
   
-  <meta name="author" content="Michael Henderson" />
-  <meta name="description" content="你是猪，你是猪八戒 123" />
+  <meta name="author" content="soulsu" />
+  <meta name="description" content="Nginx访问控制，跨域请求配置。
+
+" />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@gohugoio" />
-    <meta name="twitter:title" content="Hello world1" />
-    <meta name="twitter:description" content="你是猪，你是猪八戒 123" />
+    <meta name="twitter:title" content="Nginx访问控制" />
+    <meta name="twitter:description" content="Nginx访问控制，跨域请求配置。
+
+" />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Hello world1" />
-  <meta property="og:description" content="你是猪，你是猪八戒 123" />
-  <meta property="og:url" content="https://soulsu.github.io/post/hello-world/" />
+  <meta property="og:title" content="Nginx访问控制" />
+  <meta property="og:description" content="Nginx访问控制，跨域请求配置。
+
+" />
+  <meta property="og:url" content="https://soulsu.github.io/post/nginx-access-control/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
@@ -40,7 +46,7 @@
 <meta name="generator" content="Hugo 0.37.1" />
 
 
-<link rel="canonical" href="https://soulsu.github.io/post/hello-world/" />
+<link rel="canonical" href="https://soulsu.github.io/post/nginx-access-control/" />
 <link rel="alternative" href="https://soulsu.github.io/index.xml" title="Hugo Blog" type="application/atom+xml" />
 
 
@@ -223,24 +229,74 @@
 
   <section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">Hello world1</h1>
-      <p class="post-meta">@Michael Henderson · Sep 28, 2014 · 1 min read</p>
+      <h1 class="post-title">Nginx访问控制</h1>
+      <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
     </header>
-    <article class="post-content"><p>你是猪，你是猪八戒
-123</p>
-</article>
+    <article class="post-content"><p>Nginx访问控制，跨域请求配置。</p>
+
+<p></p>
+
+<h3 id="限制-ip-访问">限制 IP 访问</h3>
+
+<p>需求</p>
+
+<blockquote>
+<p>有一个后台，只允许由公司内部发送访问，不支持其他地方访问，这个时候就需要使用IP 地址进行访问控制啦～</p>
+</blockquote>
+
+<pre><code>location /admin/ {
+    deny 10.0.0.1;
+    allow 10.0.0.0/20;
+    allow 2001:0db8::/32;
+    deny all;
+}
+</code></pre>
+
+<p>如上所示， <code>deny</code> 指令限制不能访问的IP， <code>allow</code> 指令允许能够访问的IP，从上到下执行匹配，直到最后一个配置为止。</p>
+
+<h3 id="配置跨域访问">配置跨域访问</h3>
+
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">CORS 跨域说明</a>，资源跨域共享的方法很多，这里就说说如何使用 Nginx 来配置资源支持跨域访问。</p>
+
+<p>配置方法：</p>
+
+<pre><code>map $request_method $cors_method {
+    OPTIONS 11;
+    GET 1;
+    POST 1;
+    default 0;
+}
+server {
+    location / {
+        if ($cors_method ~ '1') {
+            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+            add_header 'Access-Control-Allow-Origin' '*.example.com';
+            add_header 'Access-Control-Allow-Headers' 'DNT,
+            Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type';
+        }
+        if ($cors_method = '11') {
+            add_header 'Access-Control-Max-Age' 1728000;
+            add_header 'Content-Type' 'text/plain; charset=UTF-8';
+            add_header 'Content-Length' 0;
+            return 204;
+        }
+    }
+}
+</code></pre>
+
+<p>当浏览器发现请求是一个跨域请求时，会先发送一个 <strong>OPTIONS</strong> HTTP 方法，用来检测服务端是否支持跨域。如果支持，就会发送正常的 HTTP 请求方法。</p></article>
     <footer class="post-footer">
       
       <ul class="post-tags">
         
-          <li><a href="https://soulsu.github.io/tags/theme"><span class="tag">Theme</span></a></li>
+          <li><a href="https://soulsu.github.io/tags/linux"><span class="tag">Linux</span></a></li>
         
-          <li><a href="https://soulsu.github.io/tags/hugo"><span class="tag">Hugo</span></a></li>
+          <li><a href="https://soulsu.github.io/tags/nginx"><span class="tag">Nginx</span></a></li>
         
       </ul>
       
       <p class="post-copyright">
-        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.This post was published <strong>1284</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.
       </p>
     </footer>
     
@@ -248,7 +304,7 @@
       <div id="cyReward" role="cylabs" data-use="reward"></div>
       <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
       <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
-      <div id="SOHUCS" sid="/post/hello-world/" ></div>
+      <div id="SOHUCS" sid="/post/nginx-access-control/" ></div>
       <script>
       (function(){
       var appid = 'cyty0nhnf';
