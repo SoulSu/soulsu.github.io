@@ -6,19 +6,32 @@
     <description>Recent content on Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>© 原创文章，望大家多多指导交流</copyright>
+    <copyright>© 原创文章，望大家多多交流</copyright>
     <lastBuildDate>Mon, 12 May 2008 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
+      <title>关于我</title>
       <link>https://soulsu.github.io/about/</link>
       <pubDate>Mon, 12 May 2008 00:00:00 +0000</pubDate>
       
       <guid>https://soulsu.github.io/about/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Etcd操作与集群配置</title>
+      <link>https://soulsu.github.io/post/linux/etcd%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 04 Apr 2018 16:19:40 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/linux/etcd%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;Etcd 是一个高可用的键值对存储系统，可以用它实现服务配置；服务发现
+Etcd 使用 raft 一致性协议保证数据、服务的高可用
+Etcd 提供了 rest 方法进行 api 的操作&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
