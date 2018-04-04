@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多交流</copyright>
-    <lastBuildDate>Wed, 04 Apr 2018 16:19:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Apr 2018 17:50:18 +0800</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker</title>
+      <link>https://soulsu.github.io/tags/docker/</link>
+      <pubDate>Wed, 04 Apr 2018 17:50:18 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>

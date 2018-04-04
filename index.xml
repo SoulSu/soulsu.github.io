@@ -22,6 +22,17 @@
     </item>
     
     <item>
+      <title>Docker命令操作</title>
+      <link>https://soulsu.github.io/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Wed, 04 Apr 2018 17:50:18 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</guid>
+      <description>&lt;p&gt;Docker 是新一代的容器技术，常常被比喻为软件开发的集装箱技术，在使用的过程中，有很多的命令需要记忆，这里列举了一些常用的用法。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Etcd操作与集群配置</title>
       <link>https://soulsu.github.io/post/linux/etcd%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 04 Apr 2018 16:19:40 +0800</pubDate>
