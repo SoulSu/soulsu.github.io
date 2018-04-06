@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on Begin Doing</title>
+    <link>https://soulsu.github.io/tags/php/</link>
+    <description>Recent content in Php on Begin Doing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 原创文章，望大家多多交流</copyright>
+    <lastBuildDate>Fri, 06 Apr 2018 17:10:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://soulsu.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>php 开启 opcode 测试</title>
+      <link>https://soulsu.github.io/post/php/opcode-test/</link>
+      <pubDate>Fri, 06 Apr 2018 17:10:39 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/php/opcode-test/</guid>
+      <description>&lt;p&gt;php 开启 opcode 测试,合理使用～&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

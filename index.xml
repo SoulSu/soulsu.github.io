@@ -22,6 +22,17 @@
     </item>
     
     <item>
+      <title>php 开启 opcode 测试</title>
+      <link>https://soulsu.github.io/post/php/opcode-test/</link>
+      <pubDate>Fri, 06 Apr 2018 17:10:39 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/php/opcode-test/</guid>
+      <description>&lt;p&gt;php 开启 opcode 测试,合理使用～&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>iptables 端口转发</title>
       <link>https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</link>
       <pubDate>Fri, 06 Apr 2018 17:04:46 +0800</pubDate>
