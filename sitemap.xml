@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://soulsu.github.io/post/golang/goroutine-pool/</loc>
+    <lastmod>2018-04-06T17:17:37+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://soulsu.github.io/post/php/opcode-test/</loc>
     <lastmod>2018-04-06T17:10:39+08:00</lastmod>
   </url>
@@ -65,6 +70,12 @@
   </url>
   
   <url>
+    <loc>https://soulsu.github.io/tags/golang/</loc>
+    <lastmod>2018-04-06T17:17:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://soulsu.github.io/tags/iptables/</loc>
     <lastmod>2018-04-06T17:04:46+08:00</lastmod>
     <priority>0</priority>
@@ -90,7 +101,7 @@
   
   <url>
     <loc>https://soulsu.github.io/post/</loc>
-    <lastmod>2018-04-06T17:10:39+08:00</lastmod>
+    <lastmod>2018-04-06T17:17:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   

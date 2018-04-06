@@ -5,10 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>
-  Posts
-   | 宇宙无敌大魔王
-</title>
+  <title>Goroutine Pool 实现</title>
 
   
   
@@ -18,23 +15,29 @@
 
 
   
-  <meta name="author" content="Soulsu" />
-  <meta name="description" content="" />
+  <meta name="author" content="soulsu" />
+  <meta name="description" content="该代码块是阅读 TiDB 项目
+
+" />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@gohugoio" />
-    <meta name="twitter:title" content="Posts" />
-    <meta name="twitter:description" content="" />
+    <meta name="twitter:title" content="Goroutine Pool 实现" />
+    <meta name="twitter:description" content="该代码块是阅读 TiDB 项目
+
+" />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Posts" />
-  <meta property="og:description" content="" />
-  <meta property="og:url" content="https://soulsu.github.io/post/" />
+  <meta property="og:title" content="Goroutine Pool 实现" />
+  <meta property="og:description" content="该代码块是阅读 TiDB 项目
+
+" />
+  <meta property="og:url" content="https://soulsu.github.io/post/golang/goroutine-pool/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
@@ -43,7 +46,7 @@
 <meta name="generator" content="Hugo 0.37.1" />
 
 
-<link rel="canonical" href="https://soulsu.github.io/post/" />
+<link rel="canonical" href="https://soulsu.github.io/post/golang/goroutine-pool/" />
 <link rel="alternative" href="https://soulsu.github.io/index.xml" title="Begin Doing" type="application/atom+xml" />
 
 
@@ -106,6 +109,10 @@
     
     <div class="suspension">
       <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+        <a title="Go to comments" class="to-comment" href="#SOHUCS"><span class="icon icon-comment"></span></a>
+        
       
     </div>
     
@@ -213,129 +220,56 @@
   </nav>
 </header>
 
-  <section class="main post-list">
-    <header class="list-header offscreen">
-      <h2 class="list-label">Posts List</h2>
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Goroutine Pool 实现</h1>
+      <p class="post-meta">@soulsu · Apr 6, 2018 · 1 min read</p>
     </header>
+    <article class="post-content"><p>该代码块是阅读 TiDB 项目</p>
+
+<p></p>
+
+<hr />
+
+<blockquote>
+<p>原项目代码 <a href="https://github.com/pingcap/tidb/blob/master/util/goroutine_pool/gp.go">地址</a></p>
+</blockquote>
+
+<h4 id="设计方法">设计方法</h4>
+
+<ol>
+<li>通过链表的形式维护多个协程</li>
+<li>每个内部协程都有个死循环等待任务传入</li>
+<li>复用协程-&gt; 能有效节约程序调用切换，节约系统创建协程的开销</li>
+</ol>
+
+<script src="//gist.github.com/SoulSu/addadf131ab2b71229d51d94f1ce8357.js"></script></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://soulsu.github.io/tags/golang"><span class="tag">Golang</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © 原创文章，望大家多多交流
+      </p>
+    </footer>
     
-    
       
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/golang/goroutine-pool/" class="post-link">Goroutine Pool 实现</a></h3>
-    <p class="post-meta">@soulsu · Apr 6, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">该代码块是阅读 TiDB 项目
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/golang/goroutine-pool/">Read More →</a>
-  </footer>
-</article>
-
+      <div id="cyReward" role="cylabs" data-use="reward"></div>
+      <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
+      <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
+      <div id="SOHUCS" sid="/post/golang/goroutine-pool/" ></div>
+      <script>
+      (function(){
+      var appid = 'cyty0nhnf';
+      var conf = 'prod_9175e55dec0b418faa3a36a323fb6345';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
       
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/php/opcode-test/" class="post-link">php 开启 opcode 测试</a></h3>
-    <p class="post-meta">@soulsu · Apr 6, 2018 · 2 min read</p>
-  </header>
-  
-  <p class="post-summary">php 开启 opcode 测试,合理使用～
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/php/opcode-test/">Read More →</a>
-  </footer>
-</article>
-
-      
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="post-link">iptables 端口转发</a></h3>
-    <p class="post-meta">@soulsu · Apr 6, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">Read More →</a>
-  </footer>
-</article>
-
-      
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" class="post-link">Docker命令操作</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">Docker 是新一代的容器技术，常常被比喻为软件开发的集装箱技术，在使用的过程中，有很多的命令需要记忆，这里列举了一些常用的用法。
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/">Read More →</a>
-  </footer>
-</article>
-
-      
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/linux/etcd%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/" class="post-link">Etcd操作与集群配置</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 2 min read</p>
-  </header>
-  
-  <p class="post-summary">Etcd 是一个高可用的键值对存储系统，可以用它实现服务配置；服务发现 Etcd 使用 raft 一致性协议保证数据、服务的高可用 Etcd 提供了 rest 方法进行 api 的操作
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/linux/etcd%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/">Read More →</a>
-  </footer>
-</article>
-
-      
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/linux/%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-link">Linux 终端快捷键</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">Linux 终端有很多快捷键，良好的操作能提高自己的开发工作效率，来一起看看吧～
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/linux/%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/">Read More →</a>
-  </footer>
-</article>
-
-      
-        <article class="post-entry">
-  <header class="post-header">
-    <h3 class="post-title"><a href="https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/" class="post-link">Nginx服务健康检查</a></h3>
-    <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
-  </header>
-  
-  <p class="post-summary">Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制
-
-</p>
-  <footer class="post-footer">
-    <a class="read-more" href="https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/">Read More →</a>
-  </footer>
-</article>
-
-      
-    
-    
-      <footer class="list-footer">
-        <nav class="pagination">
-          <h3 class="offscreen">Pagination</h3>
-          
-          
-            <a class="pagination-next" href="https://soulsu.github.io/post/page/2/">Older Posts →</a>
-          
-        </nav>
-      </footer>
     
   </section>
   <footer class="site-footer">
