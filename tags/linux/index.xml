@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on Hugo Blog</title>
+    <title>Linux on Begin Doing</title>
     <link>https://soulsu.github.io/tags/linux/</link>
-    <description>Recent content in Linux on Hugo Blog</description>
+    <description>Recent content in Linux on Begin Doing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多交流</copyright>
-    <lastBuildDate>Wed, 04 Apr 2018 16:19:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Apr 2018 17:04:46 +0800</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iptables 端口转发</title>
+      <link>https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</link>
+      <pubDate>Fri, 06 Apr 2018 17:04:46 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</guid>
+      <description>&lt;p&gt;Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Etcd操作与集群配置</title>

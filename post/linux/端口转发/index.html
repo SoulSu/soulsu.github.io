@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>Docker命令操作</title>
+  <title>iptables 端口转发</title>
 
   
   
@@ -16,7 +16,7 @@
 
   
   <meta name="author" content="soulsu" />
-  <meta name="description" content="Docker 是新一代的容器技术，常常被比喻为软件开发的集装箱技术，在使用的过程中，有很多的命令需要记忆，这里列举了一些常用的用法。
+  <meta name="description" content="Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
 
 " />
 
@@ -24,8 +24,8 @@
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@gohugoio" />
-    <meta name="twitter:title" content="Docker命令操作" />
-    <meta name="twitter:description" content="Docker 是新一代的容器技术，常常被比喻为软件开发的集装箱技术，在使用的过程中，有很多的命令需要记忆，这里列举了一些常用的用法。
+    <meta name="twitter:title" content="iptables 端口转发" />
+    <meta name="twitter:description" content="Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
 
 " />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
@@ -33,11 +33,11 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Docker命令操作" />
-  <meta property="og:description" content="Docker 是新一代的容器技术，常常被比喻为软件开发的集装箱技术，在使用的过程中，有很多的命令需要记忆，这里列举了一些常用的用法。
+  <meta property="og:title" content="iptables 端口转发" />
+  <meta property="og:description" content="Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
 
 " />
-  <meta property="og:url" content="https://soulsu.github.io/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" />
+  <meta property="og:url" content="https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
@@ -46,7 +46,7 @@
 <meta name="generator" content="Hugo 0.37.1" />
 
 
-<link rel="canonical" href="https://soulsu.github.io/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" />
+<link rel="canonical" href="https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" />
 <link rel="alternative" href="https://soulsu.github.io/index.xml" title="Begin Doing" type="application/atom+xml" />
 
 
@@ -222,55 +222,84 @@
 
   <section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">Docker命令操作</h1>
-      <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
+      <h1 class="post-title">iptables 端口转发</h1>
+      <p class="post-meta">@soulsu · Apr 6, 2018 · 1 min read</p>
     </header>
-    <article class="post-content"><p>Docker 是新一代的容器技术，常常被比喻为软件开发的集装箱技术，在使用的过程中，有很多的命令需要记忆，这里列举了一些常用的用法。</p>
+    <article class="post-content"><p>Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～</p>
 
 <p></p>
 
-<h3 id="常用命令">常用命令</h3>
+<hr />
 
-<ul>
-<li><code>docker images</code> 查看所有镜像</li>
-<li><code>docker cp [file] [container:path]</code> 拷贝文件到一个容器中</li>
-<li><code>docker ps</code> 查看运行中的容器</li>
-<li><code>docker ps -a</code> 查看所有的容器包括没有运行的</li>
-<li><code>docker rm [container]</code> 删除一个没有运行的容器</li>
-<li><code>docker rm [container] -f</code> 强制删除一个容器</li>
-<li><code>docker rmi [imageid]</code> 删除一个镜像</li>
-<li><code>docker commit -m [msg] [container] [repository:tag]</code> 将一个容器提交到镜像中，之前对该容器的修改会一直保存</li>
-<li><code>docker info</code> 查看docker的一些信息</li>
-<li><code>docker stop|start [container]</code> 启动或者停止容器</li>
-<li><code>docker search</code> 从远端仓库查找docker镜像</li>
-<li><code>docker pull</code> 获取image</li>
-<li><code>docker build</code> 通过Dockerfile 文件创建镜像</li>
-<li><code>docker run</code> 运行镜像</li>
-<li><code>docker run -d --name [name] -v [挂载]</code></li>
-<li><code>docker inspect [container]</code> 查看容器的配置信息</li>
-</ul>
+<p>iptables 端口转发配置规则</p>
 
-<h3 id="dockerfile-语法">Dockerfile 语法</h3>
+<h4 id="请求在防火墙中的路由过程">请求在防火墙中的路由过程</h4>
 
-<ul>
-<li><code>FROM</code> 基础镜像</li>
-<li><code>RUN</code> 执行命令</li>
-<li><code>ADD</code> 添加文件</li>
-<li><code>COPY</code> 拷贝文件</li>
-<li><code>CMD</code> 执行命令</li>
-<li><code>EXPOSE</code> 暴露端口</li>
-<li><code>ENV</code> 设定环境变量</li>
-<li><code>WORKDIR</code> 指定路径</li>
-<li><code>MAINTAINER</code> 维护者 作者</li>
-<li><code>ENTRYPOINT</code> 容器入口</li>
-<li><code>USER</code> 指定用户</li>
-<li><code>VOLUME</code> 挂载</li>
-</ul></article>
+<pre><code>                               XXXXXXXXXXXXXXXXXX
+                             XXX     Network    XXX
+                               XXXXXXXXXXXXXXXXXX
+                                       +
+                                       |
+                                       v
+ +-------------+              +------------------+
+ |table: filter| &lt;---+        | table: nat       |
+ |chain: INPUT |     |        | chain: PREROUTING|
+ +-----+-------+     |        +--------+---------+
+       |             |                 |
+       v             |                 v
+ [local process]     |           ****************          +--------------+
+       |             +---------+ Routing decision +------&gt; |table: filter |
+       v                         ****************          |chain: FORWARD|
+****************                                           +------+-------+
+Routing decision                                                  |
+****************                                                  |
+       |                                                          |
+       v                        ****************                  |
++-------------+       +------&gt;  Routing decision  &lt;---------------+
+|table: nat   |       |         ****************
+|chain: OUTPUT|       |               +
++-----+-------+       |               |
+      |               |               v
+      v               |      +-------------------+
++--------------+      |      | table: nat        |
+|table: filter | +----+      | chain: POSTROUTING|
+|chain: OUTPUT |             +--------+----------+
++--------------+                      |
+                                      v
+                               XXXXXXXXXXXXXXXXXX
+                             XXX    Network     XXX
+                               XXXXXXXXXXXXXXXXXX
+</code></pre>
+
+<ol>
+<li>配置外网访问端口转发
+<code>iptables -t nat -A PREROUTING -p tcp -i eth0 -d 192.168.60.241 --dport 19725 -j DNAT --to 192.168.60.241:22</code></li>
+</ol>
+
+<p>配置网卡<code>eth0</code> ip 地址 <code>192.168.60.241</code> 进来的 端口 <code>19725</code> 使用目的地转发到 <code>192.168.60.241:22</code> 地址</p>
+
+<ol>
+<li>本机访问端口转发</li>
+</ol>
+
+<p><code>iptables -t nat -A OUTPUT -p tcp -d 127.0.0.1 --dport 19725 -j DNAT --to 127.0.0.1:22</code>
+<code>iptables -t nat -A OUTPUT -p tcp -d 192.168.60.241 --dport 19725 -j DNAT --to 127.0.0.1:22</code></p>
+
+<p>和<strong>1</strong>相同的目的，但是从本机访问 <code>19725</code> 端口的时候会走本地网卡，所以需要添加如上两条规则</p>
+
+<h4 id="遇到的问题">遇到的问题</h4>
+
+<ol>
+<li>在不同网段中，已经设置了<code>DNAT</code>转发，比如让访问 <code>192.168.60.241:1884</code>的端口转发到<code>192.168.1.192:1884</code>但是在另一台机器<code>192.168.20.110</code>上面是连接不上的</li>
+<li>我加了另一条规则 <code>iptables -t nat -A POSTROUTING -d 192.168.1.192 -p tcp --dport 1884 -o eth0 -j SNAT --to 192.168.60.241</code> 让在　<code>POSTROUTING</code> 的时候修改目的地址就能连通，<strong><em>查看资料后发现是默认服务器默认路由的问题，但是有点想不通，因为在<code>192.168.1.193</code>上面直接连接<code>192.168.60.241:1884</code>是可以连通，所以猜测是因为请求的时候的路由之类的问题，先记录下了，后面再看看。</em></strong></li>
+</ol></article>
     <footer class="post-footer">
       
       <ul class="post-tags">
         
-          <li><a href="https://soulsu.github.io/tags/docker"><span class="tag">Docker</span></a></li>
+          <li><a href="https://soulsu.github.io/tags/linux"><span class="tag">Linux</span></a></li>
+        
+          <li><a href="https://soulsu.github.io/tags/iptables"><span class="tag">Iptables</span></a></li>
         
       </ul>
       
@@ -283,7 +312,7 @@
       <div id="cyReward" role="cylabs" data-use="reward"></div>
       <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
       <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
-      <div id="SOHUCS" sid="/post/linux/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" ></div>
+      <div id="SOHUCS" sid="/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" ></div>
       <script>
       (function(){
       var appid = 'cyty0nhnf';
