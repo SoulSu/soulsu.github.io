@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>优雅的shell参数编程</title>
+
+  
+  
+
+
+
+
+
+  
+  <meta name="author" content="soulsu" />
+  <meta name="description" content="当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～
+
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="优雅的shell参数编程" />
+    <meta name="twitter:description" content="当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～
+
+" />
+    <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="优雅的shell参数编程" />
+  <meta property="og:description" content="当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～
+
+" />
+  <meta property="og:url" content="https://soulsu.github.io/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/" />
+  <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="https://soulsu.github.io/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/" />
+<link rel="alternative" href="https://soulsu.github.io/index.xml" title="Begin Doing" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+<meta name="google-site-verification" content="hgbcXGlf6whzGqN3Fxpk3J0lPbrp1Jo7wb_xLQlii0s" />
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Begin Doing" />
+<meta name="msapplication-tooltip" content="Begin Doing" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://soulsu.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://soulsu.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://soulsu.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://soulsu.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://soulsu.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://soulsu.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="https://soulsu.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+        <a title="Go to comments" class="to-comment" href="#SOHUCS"><span class="icon icon-comment"></span></a>
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://soulsu.github.io/img/avatar.jpeg" alt="Avatar">
+  
+  <h2 class="title">Begin Doing</h2>
+  
+  <p class="subtitle">这局，很稳～</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+            
+            
+            
+              is-active
+            ">
+            <a href="https://soulsu.github.io/">主页</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://soulsu.github.io/tags/">标签</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://soulsu.github.io/about/">关于我</a>
+          </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:soul.sxd@gmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/soulsu" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://soulsu.github.io/img/qrcode.jpg" title="Wechat"><span class="icon icon-wechat"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://soulsu.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">优雅的shell参数编程</h1>
+      <p class="post-meta">@soulsu · Apr 12, 2018 · 1 min read</p>
+    </header>
+    <article class="post-content"><p>当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～</p>
+
+<p></p>
+
+<hr />
+
+<h4 id="getopts">getopts</h4>
+
+<ol>
+<li>查看帮助： <code>man shell</code> 然后搜索 <code>getopts</code></li>
+<li>输入参数： <code>getopts optstring name [args]</code></li>
+<li><strong>:</strong> 分割表示后面需要带上参数值</li>
+<li>&ldquo;a:b:c&rdquo; 参数a,b 后面需要带上值</li>
+<li>匹配成功后会内置两个变量；<code>OPTIND</code>表示参数偏移量，<code>OPTARG</code>表示参数对应的值</li>
+</ol>
+
+<p>使用方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+
+a<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default a&#34;</span>
+b<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default b&#34;</span>
+c<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default c&#34;</span>
+
+<span style="color:#75715e"># OPTERR=0
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;a:b:c:h&#34;</span> opt
+<span style="color:#66d9ef">do</span>
+
+    <span style="color:#66d9ef">case</span> $opt in
+        a<span style="color:#f92672">)</span>
+            echo <span style="color:#e6db74">&#34;a </span><span style="color:#e6db74">${</span>OPTIND<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+            a<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span>
+        ;;
+        b<span style="color:#f92672">)</span>
+            echo <span style="color:#e6db74">&#34;b </span><span style="color:#e6db74">${</span>OPTIND<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+            b<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span>
+        ;;
+        c<span style="color:#f92672">)</span>
+            echo <span style="color:#e6db74">&#34;c </span><span style="color:#e6db74">${</span>OPTIND<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+            c<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span>
+        ;;
+        h<span style="color:#f92672">)</span>
+            echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>opt<span style="color:#e6db74">}</span><span style="color:#e6db74"> used </span><span style="color:#e6db74">${</span>0<span style="color:#e6db74">}</span><span style="color:#e6db74"> [-a|-b|-c]&#34;</span>
+        ;;
+    <span style="color:#66d9ef">esac</span>
+
+<span style="color:#66d9ef">done</span>
+
+echo $a
+echo $b
+echo $c</code></pre></div>
+<p>当输入 <code>-c true -a 123 -b &quot;arg b&quot;</code> 的时候会覆盖变量默认值并输出</p>
+
+<pre><code>c 3 true
+a 5 123
+b 7 arg b
+123
+arg b
+true
+</code></pre></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://soulsu.github.io/tags/shell"><span class="tag">Shell</span></a></li>
+        
+          <li><a href="https://soulsu.github.io/tags/linux"><span class="tag">Linux</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © 原创文章，望大家多多交流
+      </p>
+    </footer>
+    
+      
+      <div id="cyReward" role="cylabs" data-use="reward"></div>
+      <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
+      <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
+      <div id="SOHUCS" sid="/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/" ></div>
+      <script>
+      (function(){
+      var appid = 'cyty0nhnf';
+      var conf = 'prod_9175e55dec0b418faa3a36a323fb6345';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017-2018 Begin Doing</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="https://soulsu.github.io/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-75759480-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>

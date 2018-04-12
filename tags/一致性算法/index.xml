@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>一致性算法 on Begin Doing</title>
+    <link>https://soulsu.github.io/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 一致性算法 on Begin Doing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 原创文章，望大家多多交流</copyright>
+    <lastBuildDate>Fri, 06 Apr 2018 17:27:53 +0800</lastBuildDate>
+    
+	<atom:link href="https://soulsu.github.io/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>一致性算法 Raft 介绍</title>
+      <link>https://soulsu.github.io/post/system/raft-ana/</link>
+      <pubDate>Fri, 06 Apr 2018 17:27:53 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/system/raft-ana/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
