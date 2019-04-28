@@ -1,6 +1,6 @@
 baseURL = "https://soulsu.github.io"
 languageCode = "zh-cn"
-title = "Hugo Blog"
+title = "Begin Doing"
 theme = "nuo"
 enableRobotsTXT = true
 PygmentsCodeFences = true
@@ -22,11 +22,11 @@ copyright = "© 原创文章，望大家多多交流"
   identifier = "home"
   url = "/"
 
-[[menu.main]]
-  name = "工作"
-  weight = 20
-  identifier = "works"
-  url = "https://github.com/soulsu"
+# [[menu.main]]
+#   name = "工作"
+#   weight = 20
+#   identifier = "works"
+#   url = "https://github.com/soulsu"
 
 [[menu.main]]
   name = "标签"
@@ -39,9 +39,9 @@ copyright = "© 原创文章，望大家多多交流"
   author = "Soulsu"
   avatar = "/img/avatar.jpeg"
   seotitle = "宇宙无敌大魔王"
-  subtitle = "~ Keep It Simple & Stupid ~"
-  description = "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again."
-  paginate = 10
+  subtitle = "这局，很稳～"
+  description = ""
+  paginate = 7
 
   # Choose your social networks
   email = "soul.sxd@gmail.com"
@@ -73,11 +73,11 @@ copyright = "© 原创文章，望大家多多交流"
 
   # Google Webmaster
   # https://www.google.com/webmasters/
-  googleSiteVerification = "_moDmnnBNVLBN1rzNxyGUGdPHE20YgbmrtzLIbxaWFc"
+  googleSiteVerification = "hgbcXGlf6whzGqN3Fxpk3J0lPbrp1Jo7wb_xLQlii0s"
 
   # Bing Webmaster
   # https://www.bing.com/toolbox/webmaster/
-  msValidate = "22596E34341DD1D17D6022C44647E587"
+  # msValidate = "22596E34341DD1D17D6022C44647E587"
 
   # Baidu Webmaster (China Only)
   # https://zhanzhang.baidu.com/
