@@ -5,9 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>
-  Tags | 宇宙无敌大魔王
-</title>
+  <title>Golang 实现一个接口后　方法需要传数组怎么办</title>
 
   
   
@@ -17,21 +15,29 @@
 
 
   
-  <meta name="author" content="Soulsu" />
-  <meta name="description" content="" />
+  <meta name="author" content="soulsu" />
+  <meta name="description" content="Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？
+
+" />
 
   
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@gohugoio" />
-  <meta name="twitter:title" content="宇宙无敌大魔王" />
-  <meta name="twitter:description" content="" />
-  <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="Golang 实现一个接口后　方法需要传数组怎么办" />
+    <meta name="twitter:description" content="Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？
+
+" />
+    <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
+  
 
   
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="宇宙无敌大魔王" />
-  <meta property="og:description" content="" />
-  <meta property="og:url" content="https://soulsu.github.io/tags/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Golang 实现一个接口后　方法需要传数组怎么办" />
+  <meta property="og:description" content="Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？
+
+" />
+  <meta property="og:url" content="https://soulsu.github.io/post/golang/go-interface/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
@@ -40,7 +46,7 @@
 <meta name="generator" content="Hugo 0.37.1" />
 
 
-<link rel="canonical" href="https://soulsu.github.io/tags/" />
+<link rel="canonical" href="https://soulsu.github.io/post/golang/go-interface/" />
 <link rel="alternative" href="https://soulsu.github.io/index.xml" title="Begin Doing" type="application/atom+xml" />
 
 
@@ -104,6 +110,10 @@
     <div class="suspension">
       <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
       
+        
+        <a title="Go to comments" class="to-comment" href="#SOHUCS"><span class="icon icon-comment"></span></a>
+        
+      
     </div>
     
     
@@ -126,13 +136,13 @@
         <li class="menu-item
             
             
+            
+              is-active
             ">
             <a href="https://soulsu.github.io/">主页</a>
           </li>
       
         <li class="menu-item
-            
-              is-active
             
             
             ">
@@ -210,38 +220,53 @@
   </nav>
 </header>
 
-  <section class="main post-detail terms-list">
+  <section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">Tags</h1>
+      <h1 class="post-title">Golang 实现一个接口后　方法需要传数组怎么办</h1>
+      <p class="post-meta">@soulsu · Nov 17, 2018 · 1 min read</p>
     </header>
-    <div class="tags-cloud">
+    <article class="post-content"><p>Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？</p>
+
+<p></p>
+
+<hr />
+
+<h4 id="设计方法">设计方法</h4>
+
+<ol>
+<li>通过链表的形式维护多个协程</li>
+<li>每个内部协程都有个死循环等待任务传入</li>
+<li>复用协程-&gt; 能有效节约程序调用切换，节约系统创建协程的开销</li>
+</ol>
+
+<script src="//gist.github.com/SoulSu/7825147f4924afd727bb7ba89fb952f8.js"></script></article>
+    <footer class="post-footer">
       
-      
+      <ul class="post-tags">
         
-        <a href="https://soulsu.github.io/tags/linux/" class="tag-xxl">linux</a>
-      
+          <li><a href="https://soulsu.github.io/tags/golang"><span class="tag">Golang</span></a></li>
         
-        <a href="https://soulsu.github.io/tags/nginx/" class="tag-xxl">nginx</a>
+      </ul>
       
-        
-        <a href="https://soulsu.github.io/tags/golang/" class="tag-m">golang</a>
+      <p class="post-copyright">
+        © 原创文章，望大家多多交流This post was published <strong>162</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
       
-        
-        <a href="https://soulsu.github.io/tags/docker/" class="tag-s">docker</a>
+      <div id="cyReward" role="cylabs" data-use="reward"></div>
+      <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
+      <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
+      <div id="SOHUCS" sid="/post/golang/go-interface/" ></div>
+      <script>
+      (function(){
+      var appid = 'cyty0nhnf';
+      var conf = 'prod_9175e55dec0b418faa3a36a323fb6345';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
       
-        
-        <a href="https://soulsu.github.io/tags/iptables/" class="tag-s">iptables</a>
-      
-        
-        <a href="https://soulsu.github.io/tags/php/" class="tag-s">php</a>
-      
-        
-        <a href="https://soulsu.github.io/tags/shell/" class="tag-s">shell</a>
-      
-        
-        <a href="https://soulsu.github.io/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E7%AE%97%E6%B3%95/" class="tag-s">一致性算法</a>
-      
-    </div>
+    
   </section>
   <footer class="site-footer">
   <p>© 2017-2019 Begin Doing</p>

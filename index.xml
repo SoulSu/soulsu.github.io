@@ -22,6 +22,17 @@
     </item>
     
     <item>
+      <title>Golang 实现一个接口后　方法需要传数组怎么办</title>
+      <link>https://soulsu.github.io/post/golang/go-interface/</link>
+      <pubDate>Sat, 17 Nov 2018 17:17:37 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/golang/go-interface/</guid>
+      <description>&lt;p&gt;Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>优雅的shell参数编程</title>
       <link>https://soulsu.github.io/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Thu, 12 Apr 2018 09:48:33 +0800</pubDate>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多交流</copyright>
-    <lastBuildDate>Thu, 12 Apr 2018 09:48:33 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 17 Nov 2018 17:17:37 +0800</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang 实现一个接口后　方法需要传数组怎么办</title>
+      <link>https://soulsu.github.io/post/golang/go-interface/</link>
+      <pubDate>Sat, 17 Nov 2018 17:17:37 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/golang/go-interface/</guid>
+      <description>&lt;p&gt;Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>优雅的shell参数编程</title>
