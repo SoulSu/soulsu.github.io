@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>优雅的shell参数编程</title>
+  <title>Nginx服务健康检查</title>
 
   
   
@@ -16,25 +16,25 @@
 
   
   <meta name="author" content="soulsu" />
-  <meta name="description" content="当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～
+  <meta name="description" content="Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制
 " />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@gohugoio" />
-    <meta name="twitter:title" content="优雅的shell参数编程" />
-    <meta name="twitter:description" content="当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～
+    <meta name="twitter:title" content="Nginx服务健康检查" />
+    <meta name="twitter:description" content="Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制
 " />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="优雅的shell参数编程" />
-  <meta property="og:description" content="当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～
+  <meta property="og:title" content="Nginx服务健康检查" />
+  <meta property="og:description" content="Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制
 " />
-  <meta property="og:url" content="https://soulsu.github.io/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/" />
+  <meta property="og:url" content="https://soulsu.github.io/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
@@ -43,7 +43,7 @@
 <meta name="generator" content="Hugo 0.69.0" />
 
 
-<link rel="canonical" href="https://soulsu.github.io/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/" />
+<link rel="canonical" href="https://soulsu.github.io/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/" />
 <link rel="alternative" href="https://soulsu.github.io/index.xml" title="Begin Doing" type="application/atom+xml" />
 
 
@@ -219,75 +219,28 @@
 
   <section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">优雅的shell参数编程</h1>
-      <p class="post-meta">@soulsu · Apr 12, 2018 · 1 min read</p>
+      <h1 class="post-title">Nginx服务健康检查</h1>
+      <p class="post-meta">@soulsu · Apr 4, 2018 · 1 min read</p>
     </header>
-    <article class="post-content"><p>当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～</p>
-<hr>
-<h4 id="getopts">getopts</h4>
-<ol>
-<li>查看帮助： <code>man shell</code> 然后搜索 <code>getopts</code></li>
-<li>输入参数： <code>getopts optstring name [args]</code></li>
-<li><strong>:</strong> 分割表示后面需要带上参数值</li>
-<li>&ldquo;a:b:c&rdquo; 参数a,b 后面需要带上值</li>
-<li>匹配成功后会内置两个变量；<code>OPTIND</code>表示参数偏移量，<code>OPTARG</code>表示参数对应的值</li>
-</ol>
-<p>使用方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-
-a<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default a&#34;</span>
-b<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default b&#34;</span>
-c<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default c&#34;</span>
-
-<span style="color:#75715e"># OPTERR=0</span>
-<span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;a:b:c:h&#34;</span> opt
-<span style="color:#66d9ef">do</span>
-
-    <span style="color:#66d9ef">case</span> $opt in
-        a<span style="color:#f92672">)</span>
-            echo <span style="color:#e6db74">&#34;a </span><span style="color:#e6db74">${</span>OPTIND<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-            a<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span>
-        ;;
-        b<span style="color:#f92672">)</span>
-            echo <span style="color:#e6db74">&#34;b </span><span style="color:#e6db74">${</span>OPTIND<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-            b<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span>
-        ;;
-        c<span style="color:#f92672">)</span>
-            echo <span style="color:#e6db74">&#34;c </span><span style="color:#e6db74">${</span>OPTIND<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-            c<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>OPTARG<span style="color:#e6db74">}</span>
-        ;;
-        h<span style="color:#f92672">)</span>
-            echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>opt<span style="color:#e6db74">}</span><span style="color:#e6db74"> used </span><span style="color:#e6db74">${</span>0<span style="color:#e6db74">}</span><span style="color:#e6db74"> [-a|-b|-c]&#34;</span>
-        ;;
-    <span style="color:#66d9ef">esac</span>
-
-<span style="color:#66d9ef">done</span>
-
-echo $a
-echo $b
-echo $c
-
-</code></pre></div><p>当输入 <code>-c true -a 123 -b &quot;arg b&quot;</code> 的时候会覆盖变量默认值并输出</p>
-<pre><code>c 3 true
-a 5 123
-b 7 arg b
-123
-arg b
-true
+    <article class="post-content"><p>Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制</p>
+<h3 id="默认检查规则">默认检查规则</h3>
+<p>在默认请情况下， 可以设置 <code>proxy_next_upstream</code> 指令来解决一台代理服务器错出时是否将请求代理到另一台服务器;值的注意的是，当服务器出现故障不能请求时，请求还是会发送到该台服务器，然后再切换到另一台，会造成一次请求浪费。</p>
+<p><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_next_upstream">官方文档</a></p>
+<p>可选配置项：</p>
+<pre><code>proxy_next_upstream error | timeout | invalid_header | http_500 | http_502 | http_503 | http_504 | http_403 | http_404 | http_429 | non_idempotent | off ...;
 </code></pre></article>
     <footer class="post-footer">
       
       <ul class="post-tags">
         
-          <li><a href="https://soulsu.github.io/tags/shell"><span class="tag">Shell</span></a></li>
+          <li><a href="https://soulsu.github.io/tags/nginx"><span class="tag">Nginx</span></a></li>
         
           <li><a href="https://soulsu.github.io/tags/linux"><span class="tag">Linux</span></a></li>
         
       </ul>
       
       <p class="post-copyright">
-        © 原创文章，望大家多多交流This post was published <strong>785</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+        © 原创文章，望大家多多交流This post was published <strong>793</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
       </p>
     </footer>
     
@@ -295,7 +248,7 @@ true
       <div id="cyReward" role="cylabs" data-use="reward"></div>
       <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
       <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid=cyty0nhnf"></script>
-      <div id="SOHUCS" sid="/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/" ></div>
+      <div id="SOHUCS" sid="/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/" ></div>
       <script>
       (function(){
       var appid = 'cyty0nhnf';

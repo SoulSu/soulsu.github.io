@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on Begin Doing</title>
@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多交流</copyright>
-    <lastBuildDate>Sat, 17 Nov 2018 17:17:37 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 22:29:42 +0800</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go SDK 工具</title>
+      <link>https://soulsu.github.io/post/linux/gosdk%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 05 Jun 2020 22:29:42 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/linux/gosdk%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;p&gt;在使用Golang 语言开发程序时，有时会有切换sdk版本的需求，这里写了一个简单的工具来方便一键切换&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>WaitGroup 源码解析</title>
+      <link>https://soulsu.github.io/post/golang/waitgroup-source/</link>
+      <pubDate>Tue, 30 Apr 2019 14:45:16 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/golang/waitgroup-source/</guid>
+      <description>看完本文你将了解 WaigGroup
+ 如何工作的 为何不能拷贝   </description>
+    </item>
     
     <item>
       <title>Golang 实现一个接口后　方法需要传数组怎么办</title>
@@ -18,9 +37,7 @@
       <pubDate>Sat, 17 Nov 2018 17:17:37 +0800</pubDate>
       
       <guid>https://soulsu.github.io/post/golang/go-interface/</guid>
-      <description>&lt;p&gt;Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Golang 中实现了一个接口类，但是当一个方法需要传参数是数组时会有语法上的问题，这时该怎么做呢？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +46,7 @@
       <pubDate>Fri, 06 Apr 2018 17:17:37 +0800</pubDate>
       
       <guid>https://soulsu.github.io/post/golang/goroutine-pool/</guid>
-      <description>&lt;p&gt;该代码块是阅读 TiDB 项目&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;该代码块是阅读 TiDB 项目&lt;/p&gt;</description>
     </item>
     
   </channel>

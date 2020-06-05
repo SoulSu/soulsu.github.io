@@ -17,7 +17,6 @@
   
   <meta name="author" content="soulsu" />
   <meta name="description" content="Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
-
 " />
 
   
@@ -26,7 +25,6 @@
     <meta name="twitter:site" content="@gohugoio" />
     <meta name="twitter:title" content="iptables 端口转发" />
     <meta name="twitter:description" content="Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
-
 " />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
@@ -35,7 +33,6 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="iptables 端口转发" />
   <meta property="og:description" content="Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～
-
 " />
   <meta property="og:url" content="https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
@@ -43,7 +40,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.69.0" />
 
 
 <link rel="canonical" href="https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" />
@@ -201,7 +198,7 @@
       
 
       <li class="social-item">
-        <a href="https://soulsu.github.io/img/qrcode.jpg" title="Wechat"><span class="icon icon-wechat"></span></a>
+        <a href="https://soulsu.github.io/img/qrcode.png" title="Wechat"><span class="icon icon-wechat"></span></a>
       </li>
 
       
@@ -226,15 +223,9 @@
       <p class="post-meta">@soulsu · Apr 6, 2018 · 1 min read</p>
     </header>
     <article class="post-content"><p>Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～</p>
-
-<p></p>
-
-<hr />
-
+<hr>
 <p>iptables 端口转发配置规则</p>
-
 <h4 id="请求在防火墙中的路由过程">请求在防火墙中的路由过程</h4>
-
 <pre><code>                               XXXXXXXXXXXXXXXXXX
                              XXX     Network    XXX
                                XXXXXXXXXXXXXXXXXX
@@ -269,30 +260,24 @@ Routing decision                                                  |
                                XXXXXXXXXXXXXXXXXX
                              XXX    Network     XXX
                                XXXXXXXXXXXXXXXXXX
-</code></pre>
-
-<ol>
+</code></pre><ol>
 <li>配置外网访问端口转发
 <code>iptables -t nat -A PREROUTING -p tcp -i eth0 -d 192.168.60.241 --dport 19725 -j DNAT --to 192.168.60.241:22</code></li>
 </ol>
-
 <p>配置网卡<code>eth0</code> ip 地址 <code>192.168.60.241</code> 进来的 端口 <code>19725</code> 使用目的地转发到 <code>192.168.60.241:22</code> 地址</p>
-
-<ol>
+<ol start="2">
 <li>本机访问端口转发</li>
 </ol>
-
 <p><code>iptables -t nat -A OUTPUT -p tcp -d 127.0.0.1 --dport 19725 -j DNAT --to 127.0.0.1:22</code>
 <code>iptables -t nat -A OUTPUT -p tcp -d 192.168.60.241 --dport 19725 -j DNAT --to 127.0.0.1:22</code></p>
-
 <p>和<strong>1</strong>相同的目的，但是从本机访问 <code>19725</code> 端口的时候会走本地网卡，所以需要添加如上两条规则</p>
-
 <h4 id="遇到的问题">遇到的问题</h4>
-
 <ol>
 <li>在不同网段中，已经设置了<code>DNAT</code>转发，比如让访问 <code>192.168.60.241:1884</code>的端口转发到<code>192.168.1.192:1884</code>但是在另一台机器<code>192.168.20.110</code>上面是连接不上的</li>
-<li>我加了另一条规则 <code>iptables -t nat -A POSTROUTING -d 192.168.1.192 -p tcp --dport 1884 -o eth0 -j SNAT --to 192.168.60.241</code> 让在　<code>POSTROUTING</code> 的时候修改目的地址就能连通，<strong><em>查看资料后发现是默认服务器默认路由的问题，但是有点想不通，因为在<code>192.168.1.193</code>上面直接连接<code>192.168.60.241:1884</code>是可以连通，所以猜测是因为请求的时候的路由之类的问题，先记录下了，后面再看看。</em></strong></li>
-</ol></article>
+</ol>
+<ul>
+<li>我加了另一条规则 <code>iptables -t nat -A POSTROUTING -d 192.168.1.192 -p tcp --dport 1884 -o eth0 -j SNAT --to 192.168.60.241</code> 让在　<code>POSTROUTING</code> 的时候修改目的地址就能连通，<em><strong>查看资料后发现是默认服务器默认路由的问题，但是有点想不通，因为在<code>192.168.1.193</code>上面直接连接<code>192.168.60.241:1884</code>是可以连通，所以猜测是因为请求的时候的路由之类的问题，先记录下了，后面再看看。</strong></em></li>
+</ul></article>
     <footer class="post-footer">
       
       <ul class="post-tags">
@@ -304,7 +289,7 @@ Routing decision                                                  |
       </ul>
       
       <p class="post-copyright">
-        © 原创文章，望大家多多交流This post was published <strong>387</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+        © 原创文章，望大家多多交流This post was published <strong>791</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
       </p>
     </footer>
     
@@ -324,7 +309,7 @@ Routing decision                                                  |
     
   </section>
   <footer class="site-footer">
-  <p>© 2017-2019 Begin Doing</p>
+  <p>© 2017-2020 Begin Doing</p>
   <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
   
 </footer>
@@ -358,12 +343,16 @@ Routing decision                                                  |
 <script src="https://soulsu.github.io/js/bundle.js"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-75759480-2', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75759480-2', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

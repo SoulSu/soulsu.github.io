@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>一致性算法 on Begin Doing</title>
@@ -18,7 +18,7 @@
       <pubDate>Fri, 06 Apr 2018 17:27:53 +0800</pubDate>
       
       <guid>https://soulsu.github.io/post/system/raft-ana/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description></description>
     </item>
     
   </channel>

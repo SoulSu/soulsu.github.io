@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Begin Doing</title>
@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多交流</copyright>
-    <lastBuildDate>Thu, 12 Apr 2018 09:48:33 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 22:29:42 +0800</lastBuildDate>
     
 	<atom:link href="https://soulsu.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go SDK 工具</title>
+      <link>https://soulsu.github.io/post/linux/gosdk%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 05 Jun 2020 22:29:42 +0800</pubDate>
+      
+      <guid>https://soulsu.github.io/post/linux/gosdk%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;p&gt;在使用Golang 语言开发程序时，有时会有切换sdk版本的需求，这里写了一个简单的工具来方便一键切换&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>优雅的shell参数编程</title>
@@ -18,9 +27,7 @@
       <pubDate>Thu, 12 Apr 2018 09:48:33 +0800</pubDate>
       
       <guid>https://soulsu.github.io/post/linux/%E4%BC%98%E9%9B%85%E7%9A%84shell%E5%8F%82%E6%95%B0%E7%BC%96%E7%A8%8B/</guid>
-      <description>&lt;p&gt;当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;当自己写shell脚本的时候，会使用到自定义的参数，如何更加方便的接收参数值是一个很重要的问题；安利一个好用的方法，使用 getopts 来获取参数和参数值～&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +36,7 @@
       <pubDate>Fri, 06 Apr 2018 17:04:46 +0800</pubDate>
       
       <guid>https://soulsu.github.io/post/linux/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</guid>
-      <description>&lt;p&gt;Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Linux 防火墙规则在使用中起到了很大的作用，所有的网络请求都会进过防火墙的规则，了解防火墙的配置在开发、排错和安全中有很重要的意义～&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -42,9 +47,7 @@
       <guid>https://soulsu.github.io/post/linux/etcd%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;p&gt;Etcd 是一个高可用的键值对存储系统，可以用它实现服务配置；服务发现
 Etcd 使用 raft 一致性协议保证数据、服务的高可用
-Etcd 提供了 rest 方法进行 api 的操作&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Etcd 提供了 rest 方法进行 api 的操作&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -53,42 +56,34 @@ Etcd 提供了 rest 方法进行 api 的操作&lt;/p&gt;
       <pubDate>Wed, 04 Apr 2018 16:11:56 +0800</pubDate>
       
       <guid>https://soulsu.github.io/post/linux/%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description>&lt;p&gt;Linux 终端有很多快捷键，良好的操作能提高自己的开发工作效率，来一起看看吧～&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Linux 终端有很多快捷键，良好的操作能提高自己的开发工作效率，来一起看看吧～&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Nginx服务健康检查</title>
-      <link>https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
+      <link>https://soulsu.github.io/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
       <pubDate>Wed, 04 Apr 2018 15:42:45 +0800</pubDate>
       
-      <guid>https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
-      <description>&lt;p&gt;Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://soulsu.github.io/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
+      <description>&lt;p&gt;Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Nginx负载均衡实践</title>
-      <link>https://soulsu.github.io/post/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://soulsu.github.io/post/nginx/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Wed, 04 Apr 2018 11:19:20 +0800</pubDate>
       
-      <guid>https://soulsu.github.io/post/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</guid>
-      <description>&lt;p&gt;Nginx负载均衡实践,描述了Nginx在不同的负载均衡下的配置和实现方法&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://soulsu.github.io/post/nginx/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;p&gt;Nginx负载均衡实践,描述了Nginx在不同的负载均衡下的配置和实现方法&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Nginx访问控制</title>
-      <link>https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</link>
+      <link>https://soulsu.github.io/post/nginx/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</link>
       <pubDate>Wed, 04 Apr 2018 11:11:06 +0800</pubDate>
       
-      <guid>https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
-      <description>&lt;p&gt;Nginx访问控制，跨域请求配置。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://soulsu.github.io/post/nginx/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
+      <description>&lt;p&gt;Nginx访问控制，跨域请求配置。&lt;/p&gt;</description>
     </item>
     
   </channel>

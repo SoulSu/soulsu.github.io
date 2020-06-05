@@ -17,7 +17,6 @@
   
   <meta name="author" content="soulsu" />
   <meta name="description" content="php 开启 opcode 测试,合理使用～
-
 " />
 
   
@@ -26,7 +25,6 @@
     <meta name="twitter:site" content="@gohugoio" />
     <meta name="twitter:title" content="php 开启 opcode 测试" />
     <meta name="twitter:description" content="php 开启 opcode 测试,合理使用～
-
 " />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
@@ -35,7 +33,6 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="php 开启 opcode 测试" />
   <meta property="og:description" content="php 开启 opcode 测试,合理使用～
-
 " />
   <meta property="og:url" content="https://soulsu.github.io/post/php/opcode-test/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
@@ -43,7 +40,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.69.0" />
 
 
 <link rel="canonical" href="https://soulsu.github.io/post/php/opcode-test/" />
@@ -201,7 +198,7 @@
       
 
       <li class="social-item">
-        <a href="https://soulsu.github.io/img/qrcode.jpg" title="Wechat"><span class="icon icon-wechat"></span></a>
+        <a href="https://soulsu.github.io/img/qrcode.png" title="Wechat"><span class="icon icon-wechat"></span></a>
       </li>
 
       
@@ -226,34 +223,33 @@
       <p class="post-meta">@soulsu · Apr 6, 2018 · 2 min read</p>
     </header>
     <article class="post-content"><p>php 开启 opcode 测试,合理使用～</p>
-
-<p></p>
-
-<hr />
-
+<hr>
 <h4 id="实验环境">实验环境</h4>
-
 <ul>
-<li><p>系统信息 <code>Linux localhost.localdomain 3.10.0-514.10.2.el7.x86_64 #1 SMP Fri Mar 3 00:04:05 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code></p></li>
-
-<li><p>内存 <code>512M</code> CPU <code>1核</code></p></li>
-
-<li><p>PHP 版本 <code>PHP 7.0.21</code> &amp; <code>Zend OPcache v7.0.21</code></p></li>
+<li>
+<p>系统信息 <code>Linux localhost.localdomain 3.10.0-514.10.2.el7.x86_64 #1 SMP Fri Mar 3 00:04:05 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code></p>
+</li>
+<li>
+<p>内存 <code>512M</code> CPU <code>1核</code></p>
+</li>
+<li>
+<p>PHP 版本 <code>PHP 7.0.21 </code> &amp; <code>Zend OPcache v7.0.21</code></p>
+</li>
 </ul>
-
 <h4 id="opcode-介绍">opcode 介绍</h4>
-
 <ol>
-<li><p>php 运行方式</p>
-
+<li>
+<p>php 运行方式</p>
 <ol>
 <li>Scanning(Lexing) ,将PHP代码转换为语言片段(Tokens)</li>
 <li>Parsing, 将Tokens转换成简单而有意义的表达式</li>
 <li>Compilation, 将表达式编译成Opocdes</li>
 <li>Execution, 顺次执行Opcodes，每次一条，从而实现PHP脚本的功能。</li>
-</ol></li>
-
-<li><p>Zend 中opcode 缓存结构体</p></li>
+</ol>
+</li>
+<li>
+<p>Zend 中opcode 缓存结构体</p>
+</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> _zend_op {
     opcode_handler_t handler; <span style="color:#75715e">// 执行该opcode时调用的处理函数
@@ -263,31 +259,28 @@
 </span><span style="color:#75715e"></span>    ulong extended_value;
     uint lineno;
     zend_uchar opcode;  <span style="color:#75715e">// opcode代码
-</span><span style="color:#75715e"></span>};</code></pre></div>
-<ol>
-<li><p>参数配置参考地址 <a href="http://php.net/manual/zh/opcache.configuration.php#ini.opcache.save-comments">点击这里</a></p></li>
-
-<li><p>opcode 注意事项</p>
-
+</span><span style="color:#75715e"></span>};
+</code></pre></div><ol start="3">
+<li>
+<p>参数配置参考地址 <a href="http://php.net/manual/zh/opcache.configuration.php#ini.opcache.save-comments">点击这里</a></p>
+</li>
+<li>
+<p>opcode 注意事项</p>
 <ol>
 <li>opcode 生成规则是，通过时间戳进行生成新 opcode，<strong>在生产环境中如果发布版本回退，老的opcode 生成时间会大于回退版本文件的当前时间戳的。</strong> 也就是说不会再更新啦。</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <h4 id="测试结果">测试结果</h4>
-
 <p>测试代码</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 <span style="color:#66d9ef">for</span>($i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;$i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">100</span>;$i<span style="color:#f92672">++</span>){
     <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Hello Opcache&#34;</span>;
 }
-</code></pre></div>
-<blockquote>
+</code></pre></div><blockquote>
 <p>执行命令 <code>ab -n 1000 -c 100 http://192.168.1.110:8080/t1.php</code></p>
 </blockquote>
-
 <p>开启时测试结果结果</p>
-
 <pre><code>Concurrency Level:      100
 Time taken for tests:   0.976 seconds
 Complete requests:      1000
@@ -300,10 +293,7 @@ Time per request:       97.630 [ms] (mean)
 Time per request:       0.976 [ms] (mean, across all concurrent requests)
 Transfer rate:          1430.38 [Kbytes/sec] received
 
-</code></pre>
-
-<p>关闭后测试结果</p>
-
+</code></pre><p>关闭后测试结果</p>
 <pre><code>Concurrency Level:      100
 Time taken for tests:   1.695 seconds
 Complete requests:      1000
@@ -316,10 +306,7 @@ Time per request:       169.522 [ms] (mean)
 Time per request:       1.695 [ms] (mean, across all concurrent requests)
 Transfer rate:          823.78 [Kbytes/sec] received
 
-</code></pre>
-
-<h4 id="结论">结论</h4>
-
+</code></pre><h4 id="结论">结论</h4>
 <blockquote>
 <p>在开启 <code>opcache</code> 后 每秒钟请求从 <code>589.89</code> 增长到了 <code>1024.27</code>
 合理利用 <code>opcache</code> 会给程序带来不错的优化效果</p>
@@ -333,7 +320,7 @@ Transfer rate:          823.78 [Kbytes/sec] received
       </ul>
       
       <p class="post-copyright">
-        © 原创文章，望大家多多交流This post was published <strong>387</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+        © 原创文章，望大家多多交流This post was published <strong>791</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
       </p>
     </footer>
     
@@ -353,7 +340,7 @@ Transfer rate:          823.78 [Kbytes/sec] received
     
   </section>
   <footer class="site-footer">
-  <p>© 2017-2019 Begin Doing</p>
+  <p>© 2017-2020 Begin Doing</p>
   <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
   
 </footer>
@@ -387,12 +374,16 @@ Transfer rate:          823.78 [Kbytes/sec] received
 <script src="https://soulsu.github.io/js/bundle.js"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-75759480-2', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75759480-2', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

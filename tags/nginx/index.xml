@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nginx on Begin Doing</title>
+    <title>nginx on Begin Doing</title>
     <link>https://soulsu.github.io/tags/nginx/</link>
-    <description>Recent content in Nginx on Begin Doing</description>
+    <description>Recent content in nginx on Begin Doing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 原创文章，望大家多多交流</copyright>
@@ -14,35 +14,29 @@
     
     <item>
       <title>Nginx服务健康检查</title>
-      <link>https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
+      <link>https://soulsu.github.io/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
       <pubDate>Wed, 04 Apr 2018 15:42:45 +0800</pubDate>
       
-      <guid>https://soulsu.github.io/post/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
-      <description>&lt;p&gt;Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://soulsu.github.io/post/nginx/nginx%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
+      <description>&lt;p&gt;Nginx服务健康检查,可以在负载均衡的时候实现主动检查机制&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Nginx负载均衡实践</title>
-      <link>https://soulsu.github.io/post/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://soulsu.github.io/post/nginx/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Wed, 04 Apr 2018 11:19:20 +0800</pubDate>
       
-      <guid>https://soulsu.github.io/post/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</guid>
-      <description>&lt;p&gt;Nginx负载均衡实践,描述了Nginx在不同的负载均衡下的配置和实现方法&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://soulsu.github.io/post/nginx/nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;p&gt;Nginx负载均衡实践,描述了Nginx在不同的负载均衡下的配置和实现方法&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Nginx访问控制</title>
-      <link>https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</link>
+      <link>https://soulsu.github.io/post/nginx/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</link>
       <pubDate>Wed, 04 Apr 2018 11:11:06 +0800</pubDate>
       
-      <guid>https://soulsu.github.io/post/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
-      <description>&lt;p&gt;Nginx访问控制，跨域请求配置。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://soulsu.github.io/post/nginx/nginx%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
+      <description>&lt;p&gt;Nginx访问控制，跨域请求配置。&lt;/p&gt;</description>
     </item>
     
   </channel>

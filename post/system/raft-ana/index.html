@@ -16,31 +16,28 @@
 
   
   <meta name="author" content="soulsu" />
-  <meta name="description" content="
-" />
+  <meta name="description" content="" />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@gohugoio" />
     <meta name="twitter:title" content="一致性算法 Raft 介绍" />
-    <meta name="twitter:description" content="
-" />
+    <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="https://soulsu.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
   <meta property="og:title" content="一致性算法 Raft 介绍" />
-  <meta property="og:description" content="
-" />
+  <meta property="og:description" content="" />
   <meta property="og:url" content="https://soulsu.github.io/post/system/raft-ana/" />
   <meta property="og:image" content="https://soulsu.github.io/img/avatar.jpg" />
 
 
 
 
-<meta name="generator" content="Hugo 0.37.1" />
+<meta name="generator" content="Hugo 0.69.0" />
 
 
 <link rel="canonical" href="https://soulsu.github.io/post/system/raft-ana/" />
@@ -198,7 +195,7 @@
       
 
       <li class="social-item">
-        <a href="https://soulsu.github.io/img/qrcode.jpg" title="Wechat"><span class="icon icon-wechat"></span></a>
+        <a href="https://soulsu.github.io/img/qrcode.png" title="Wechat"><span class="icon icon-wechat"></span></a>
       </li>
 
       
@@ -222,26 +219,17 @@
       <h1 class="post-title">一致性算法 Raft 介绍</h1>
       <p class="post-meta">@soulsu · Apr 6, 2018 · 1 min read</p>
     </header>
-    <article class="post-content"><p></p>
-
-<hr />
-
+    <article class="post-content"><hr>
 <blockquote>
 <p>一个很棒的在线动画演示<a href="http://thesecretlivesofdata.com/raft/">地址</a></p>
 </blockquote>
-
 <h4 id="什么是-cap">什么是 CAP</h4>
-
 <p>在系统开发、过渡、演变的过程中，单个系统的开发进化会在用户量增加的过程中服务会向集群方向演变；</p>
-
 <p><strong>C</strong> 一致性
 <strong>A</strong> 可用性
 <strong>P</strong> 分区容错性</p>
-
 <h5 id="集群选主">集群选主</h5>
-
 <h5 id="数据同步">数据同步</h5>
-
 <h5 id="异常恢复">异常恢复</h5></article>
     <footer class="post-footer">
       
@@ -252,7 +240,7 @@
       </ul>
       
       <p class="post-copyright">
-        © 原创文章，望大家多多交流This post was published <strong>387</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+        © 原创文章，望大家多多交流This post was published <strong>791</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
       </p>
     </footer>
     
@@ -272,7 +260,7 @@
     
   </section>
   <footer class="site-footer">
-  <p>© 2017-2019 Begin Doing</p>
+  <p>© 2017-2020 Begin Doing</p>
   <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
   
 </footer>
@@ -306,12 +294,16 @@
 <script src="https://soulsu.github.io/js/bundle.js"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-75759480-2', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75759480-2', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
